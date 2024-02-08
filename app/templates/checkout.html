@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Checkout</h1>
+        <form method="GET" action="/thank_you">
+            <div class="form-group">
+                <label for="customer_name">Your Name</label>
+                <input type="text" name="customer_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="shipping_address">Shipping Address</label>
+                <input type="text" name="shipping_address" class="form-control" required>
+            </div>
+            
+            <h2>Order Summary</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in shopping_cart %}
+                        <tr>
+                            <td>{{ item.product.name if item.product else 'Product not found'  }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>${{ item.product.price if item.product else 0 }}</td>
+                            <td>${{ item.subtotal }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <h3>Total: ${{ total_price }}</h3>
+            
+            <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
+        {% endblock %}
+

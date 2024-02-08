@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container mt-4">
+        <h1>Your Shopping Basket</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in shopping_cart %}
+                    <tr>
+                        <td>{{ item.product.name if item.product else 'Product not found'  }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>${{ item.product.price if item.product else 0}}</td>
+                        <td>${{ item.subtotal }}</td>
+                        <td><a href="{{ url_for('remove_from_cart', product_id=item.product_id ) }}" class="btn btn-danger">Remove</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3>Total: ${{ total_price }}</h3>
+        <a href="{{ url_for('checkout') }}" class="btn btn-primary">Proceed to Checkout</a>
+    </div>
+    {% endblock %}
