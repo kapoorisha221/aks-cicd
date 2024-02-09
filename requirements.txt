@@ -6,7 +6,6 @@ sqlalchemy.orm
 datetime
 app
 alembic
-logging
 flask
 flask_sqlalchemy
 flask_bootstrap
