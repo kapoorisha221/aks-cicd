@@ -4,4 +4,4 @@ COPY . .
 RUN python -m pip install --upgrade pip && python -m pip install --no-cache-dir -r requirements.txt
 RUN chmod a+x startup.sh
 EXPOSE 8000
-ENTRYPOINT ["sleep", "3600"]
+ENTRYPOINT ["sh", "startup.sh"]
