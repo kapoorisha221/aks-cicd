@@ -9,4 +9,3 @@ alembic
 flask
 flask_sqlalchemy
 flask_bootstrap
-setup
