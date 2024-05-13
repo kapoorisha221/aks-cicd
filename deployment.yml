@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: sample
-        image: nginx:1.14.2
+        image: akstestregistry1.azurecr.io/akstestregistry1:236
         
 
 ---
