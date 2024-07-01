@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: sample
-        image: akstestregistry1.azurecr.io/akstestregistry1:236
+        image: eshaacr1234.azurecr.io/test:a1da0f850b89a6c406009be26252eea70f80eb31
         
 
 ---
